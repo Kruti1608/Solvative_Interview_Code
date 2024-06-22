@@ -1,0 +1,190 @@
+:root {
+  --teal: #009879;
+  --light-teal: #00987aa3;
+  --white: #ffffff;
+  --very-light-gray: #f3f3f3;
+  --light-gray: #dddddd;
+  --medium-gray: #cccccc;
+  --error-red: #980f00;
+  --main-black-font: #212529;
+}
+
+html {
+  font-size: 16px;
+  color: var(--main-black-font);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  margin: 24px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 315px;
+  padding: 24px 0;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 5px solid var(--medium-gray);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.btn {
+  background-color: var(--teal);
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+}
+
+.input-field {
+  background-color: var(--white);
+  border: 2px solid var(--medium-gray);
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.search-box-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-field {
+  width: 241px;
+  height: 38px;
+  font-size: 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  background-image: url("./assests/ctrlShortcut.png");
+  background-position: 95%;
+  background-repeat: no-repeat;
+}
+
+.search-field::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-btn {
+  height: 38px;
+  padding: 6px 12px;
+}
+
+.places-table-container {
+  padding-top: 25px;
+}
+
+.places-data-table {
+  border-collapse: collapse;
+  border: none;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.places-data-table thead tr {
+  background-color: var(--teal);
+  color: var(--white);
+  text-align: left;
+  font-weight: bold;
+}
+
+.places-data-table th,
+.places-data-table td {
+  padding: 12px 15px;
+}
+
+.places-data-table tbody tr {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.places-data-table tbody tr:nth-of-type(even) {
+  background-color: var(--very-light-gray);
+}
+
+.places-data-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--teal);
+}
+
+.places-data-table tbody tr.active-row {
+  font-weight: bold;
+  color: var(--teal);
+}
+
+.country-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.country-name-row img {
+  height: 12px;
+  width: 12px;
+}
+
+.fields-checkbox-container {
+  display: none;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.pagination-container {
+  display: none;
+  height: 36px;
+  align-items: center;
+  gap: 36px;
+  margin: 12px 0px;
+}
+
+.pagination-container .btn {
+  padding: 4px 12px;
+}
+
+.pagination-result-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.results-limit-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.results-limit-field {
+  width: 30px;
+  padding: 6px 8px;
+}
+
+.error-msg {
+  color: var(--error-red);
+  font-weight: bold;
+}

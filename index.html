@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Places</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="search-box-container">
+      <input
+        class="input-field search-field"
+        type="search"
+        name="places"
+        placeholder="Search places..."
+      />
+      <button class="btn search-btn">Search</button>
+    </div>
+
+    <div class="places-table-container"></div>
+
+    <div class="fields-checkbox-container">
+      <span>
+        <input
+          type="checkbox"
+          class="checkbox"
+          name="id"
+          value="id"
+          disabled="disabled"
+          checked="checked"
+        />
+        <label for="id">Id</label>
+      </span>
+      <span>
+        <input
+          type="checkbox"
+          class="checkbox"
+          name="name"
+          value="name"
+          disabled="disabled"
+          checked="checked"
+        />
+        <label for="name">Name</label>
+      </span>
+      <span>
+        <input
+          type="checkbox"
+          class="checkbox"
+          name="country"
+          value="country"
+          disabled="disabled"
+          checked="checked"
+        />
+        <label for="country">Country</label>
+      </span>
+      <span>
+        <input
+          type="checkbox"
+          class="checkbox"
+          name="population"
+          value="population"
+        />
+        <label for="population">Population</label>
+      </span>
+      <span>
+        <input type="checkbox" class="checkbox" name="region" value="region" />
+        <label for="id">Region</label>
+      </span>
+    </div>
+
+    <div class="pagination-container">
+      <div class="pagination-result-container">
+        <button class="btn previous-page-btn">Previous</button>
+        <span class="page-info"></span>
+        <button class="btn next-page-btn">Next</button>
+      </div>
+      <div class="results-limit-input-container">
+        <label for="results-limit-input-label">Number of places per page:</label>
+        <input
+          class="input-field results-limit-field"
+          type="number"
+          name="limit"
+          id="results-limit-input"
+          value="5"
+        />
+        <p class="results-limit-input-error error-msg"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
