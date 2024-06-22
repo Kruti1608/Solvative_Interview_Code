@@ -69,26 +69,26 @@ const nextPageBtn = document.querySelector(".next-page-btn");
 
 const resultsLimitInput = document.querySelector("#results-limit-input");
 const resultsLimitInputError = document.querySelector(
-  ".results-limit-input-error"
+  ".error-msg"
 );
 
 const updatePaginationUI = function () {
   if (CURRENT_PAGE === 1 && totalPage === 1) {
     prevPageBtn.style.display = "none";
     nextPageBtn.style.display = "none";
-    resultsLimitInput.disabled = true; // Disable the input when there's only one page
+    resultsLimitInput.max = places_results.data.length
   } else if (CURRENT_PAGE === 1) {
     prevPageBtn.style.display = "none";
     nextPageBtn.style.display = "block";
-    resultsLimitInput.disabled = false; // Enable the input otherwise
+    resultsLimitInput.max = 10
   } else if (CURRENT_PAGE === totalPage) {
     nextPageBtn.style.display = "none";
     prevPageBtn.style.display = "block";
-    resultsLimitInput.disabled = false;
+    resultsLimitInput.max = 10
   } else {
     prevPageBtn.style.display = "block";
     nextPageBtn.style.display = "block";
-    resultsLimitInput.disabled = false;
+    resultsLimitInput.max = 10
   }
 
   pageInfo.innerHTML = `<p>Page ${CURRENT_PAGE} / ${totalPage}</p>`;
@@ -96,13 +96,13 @@ const updatePaginationUI = function () {
 
 const renderPlacesTable = function (emptySearch, placesData) {
   if (emptySearch) {
-    placesTableContainer.innerHTML = "<p>Start searching...</p>";
+    placesTableContainer.innerHTML = "<p class='start-searching'>Start searching...</p>";
     paginationContainer.style.display = "none";
     return;
   }
 
   if (placesData.error) {
-    placesTableContainer.innerHTML = `<p>${placesData.error}</p>`;
+    placesTableContainer.innerHTML = `<p error-msg">${placesData.error}</p>`;
     paginationContainer.style.display = "none";
     return;
   }
@@ -114,7 +114,7 @@ const renderPlacesTable = function (emptySearch, placesData) {
   }
 
   if (!placesData.data) {
-    placesTableContainer.innerHTML = `<p>Something went wrong</p>`;
+    placesTableContainer.innerHTML = `<p class="error-msg">Something went wrong</p>`;
     paginationContainer.style.display = "none";
     return;
   }

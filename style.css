@@ -94,6 +94,12 @@ body {
   padding: 6px 12px;
 }
 
+.start-searching {
+  color: var(--teal);
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .places-table-container {
   padding-top: 25px;
 }
